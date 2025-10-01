@@ -4,9 +4,11 @@ import { ShaderLines } from "@/components/ui/shader-lines";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Trophy, Shield, Users, Zap, Star, Target, HelpCircle, ChevronDown } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useTeamPreferences } from "@/hooks/useTeamPreferences";
 import { useNavigate } from "react-router-dom";
+import { TeamSelectionModal } from "@/components/TeamSelectionModal";
 import "./Landing.css";
 import {
   Accordion,
@@ -25,21 +27,40 @@ const SafeShaderLines = ({ className }: { className?: string }) => {
 
 export default function Landing() {
   const { user, login } = useAuth();
+  const { hasPreferences, loading: preferencesLoading } = useTeamPreferences();
   const navigate = useNavigate();
+  const [showTeamSelectionModal, setShowTeamSelectionModal] = useState(false);
 
   const handleStartBuilding = async () => {
     if (user) {
-      // User is already logged in, go to dashboard
-      navigate('/dashboard');
+      // User is already logged in, check team preferences
+      if (!preferencesLoading) {
+        if (hasPreferences === false) {
+          setShowTeamSelectionModal(true);
+        } else {
+          navigate('/dashboard');
+        }
+      }
     } else {
       // User needs to login with Privy
       await login();
     }
   };
 
+  const handleTeamSelectionComplete = () => {
+    setShowTeamSelectionModal(false);
+    navigate('/dashboard');
+  };
+
   return (
     <div className="landing-container">
       <Navigation />
+      
+      {/* Team Selection Modal */}
+      <TeamSelectionModal 
+        isOpen={showTeamSelectionModal}
+        onComplete={handleTeamSelectionComplete}
+      />
       
       {/* Hero Section */}
       <section className="hero-section">

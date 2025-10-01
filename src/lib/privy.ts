@@ -10,7 +10,7 @@ export const privyConfig = {
     createOnLogin: 'users-without-wallets' as const,
     requireUserPasswordOnCreate: false,
   },
-  loginMethods: ['email'],
+  loginMethods: ['email', 'sms'],
   appearance: {
     theme: 'dark' as const,
     accentColor: '#1d4ed8',

@@ -1,0 +1,139 @@
+/* Team Selection Modal Styles */
+
+.team-selection-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.team-selection-modal-container {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.team-selection-modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.team-selection-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-selection-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.team-selection-subtitle {
+  font-size: 1.125rem;
+  color: #666666;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.team-selection-progress {
+  margin-bottom: 2rem;
+}
+
+.team-selection-main {
+  margin-bottom: 2rem;
+}
+
+.team-selection-benefits {
+  margin-bottom: 2rem;
+}
+
+.team-selection-actions {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-selection-modal-content {
+    padding: 1.5rem;
+  }
+  
+  .team-selection-title {
+    font-size: 1.75rem;
+  }
+  
+  .team-selection-subtitle {
+    font-size: 1rem;
+  }
+  
+  .team-selection-progress .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .team-selection-progress .flex .flex:last-child {
+    margin-top: 0.5rem;
+  }
+  
+  .team-selection-progress .flex .flex:last-child .flex:first-child {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-selection-modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .team-selection-modal-content {
+    padding: 1rem;
+  }
+  
+  .team-selection-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .team-selection-modal-content {
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .team-selection-title {
+    color: #ffffff;
+  }
+  
+  .team-selection-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

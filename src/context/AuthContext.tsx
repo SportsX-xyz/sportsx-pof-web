@@ -1,9 +1,11 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { usePrivy } from '@privy-io/react-auth';
+import { useToast } from '@/hooks/use-toast';
 
 interface User {
   id: string;
   email: string;
+  phone?: string;
   user_metadata?: {
     first_name?: string;
     last_name?: string;
@@ -40,6 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     login: privyLogin, 
     logout: privyLogout 
   } = usePrivy();
+  const { toast } = useToast();
 
   const loading = !ready;
 
@@ -47,6 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const user: User | null = privyUser ? {
     id: privyUser.id,
     email: privyUser.email?.address || '',
+    phone: privyUser.phone?.number || '',
     user_metadata: {
       first_name: privyUser.google?.firstName || '',
       last_name: privyUser.google?.lastName || '',
@@ -61,6 +65,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   } : null;
 
   const login = async () => {
+    // Show high z-index toast notification with high-priority styling
+    toast({
+      title: "Checking wallet...",
+      description: "We're checking if you have a Solana wallet for this email. If not, one will be created automatically.",
+      duration: 8000, // Longer duration so users can read it
+      variant: "high-priority",
+    });
+    
     await privyLogin();
   };
 

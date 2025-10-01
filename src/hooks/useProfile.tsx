@@ -5,6 +5,7 @@ interface Profile {
   id: string;
   user_id: string;
   email: string;
+  phone?: string;
   first_name: string | null;
   last_name: string | null;
   country: string | null;
@@ -36,17 +37,18 @@ export function useProfile() {
       setLoading(true);
       setError(null);
       
-      // Mock profile data
+      // Mock profile data with realistic demo data
       const mockProfile: Profile = {
         id: 'demo-profile-id',
         user_id: user.id,
         email: user.email,
-        first_name: user.user_metadata?.first_name || 'Demo',
-        last_name: user.user_metadata?.last_name || 'User',
+        phone: user.phone,
+        first_name: user.user_metadata?.first_name || 'Alex',
+        last_name: user.user_metadata?.last_name || 'Johnson',
         country: user.user_metadata?.country || 'United States',
-        wallet_address: '0x1234567890123456789012345678901234567890',
-        wallet_provider: 'privy',
-        created_at: new Date().toISOString(),
+        wallet_address: 'So1234567890123456789012345678901234567890',
+        wallet_provider: 'solana',
+        created_at: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 days ago
         updated_at: new Date().toISOString(),
       };
 
@@ -67,6 +69,7 @@ export function useProfile() {
         id: 'demo-profile-id',
         user_id: user.id,
         email: user.email || '',
+        phone: user.phone,
         first_name: user.user_metadata?.first_name || null,
         last_name: user.user_metadata?.last_name || null,
         country: user.user_metadata?.country || null,
@@ -88,25 +91,45 @@ export function useProfile() {
     if (!user || !profile) return null;
 
     try {
-      // Mock wallet creation
-      const walletAddress = '0x' + Math.random().toString(16).substr(2, 40);
+      // Mock Solana wallet creation
+      const walletAddress = 'So' + Math.random().toString(36).substr(2, 40);
       
       // Store in localStorage for development
-      localStorage.setItem(`wallet_${user.id}`, walletAddress);
+      localStorage.setItem(`solana_wallet_${user.id}`, walletAddress);
 
-      // Update profile with mock wallet
+      // Update profile with mock Solana wallet
       const updatedProfile = {
         ...profile,
         wallet_address: walletAddress,
-        wallet_provider: 'privy',
+        wallet_provider: 'solana',
         updated_at: new Date().toISOString(),
       };
 
       setProfile(updatedProfile);
       return walletAddress;
     } catch (err) {
-      setError('Failed to create wallet');
+      setError('Failed to create Solana wallet');
       return null;
+    }
+  };
+
+  const updateProfile = async (updates: Partial<Profile>) => {
+    if (!user || !profile) return;
+
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const updatedProfile = {
+        ...profile,
+        ...updates,
+        updated_at: new Date().toISOString(),
+      };
+
+      setProfile(updatedProfile);
+    } catch (err) {
+      setError('Failed to update profile');
+      throw err;
     }
   };
 
@@ -116,6 +139,7 @@ export function useProfile() {
     error,
     createWallet,
     createProfile,
+    updateProfile,
     refetch: fetchProfile,
   };
 }

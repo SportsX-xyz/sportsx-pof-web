@@ -67,8 +67,8 @@ export function WalletCard() {
         </CardTitle>
         <CardDescription>
           {profile?.wallet_address 
-            ? "Your Proof of Fandom wallet is ready"
-            : "Create your Proof of Fandom wallet"
+            ? "Your Solana wallet is ready"
+            : "Create your Solana wallet"
           }
         </CardDescription>
       </CardHeader>
@@ -85,7 +85,7 @@ export function WalletCard() {
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">Provider:</span>
                 <Badge variant="outline">
-                  {profile.wallet_provider || 'Privy'}
+                  Solana
                 </Badge>
               </div>
             </div>
@@ -112,21 +112,21 @@ export function WalletCard() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => window.open(`https://etherscan.io/address/${profile.wallet_address}`, '_blank')}
+                onClick={() => window.open(`https://solscan.io/account/${profile.wallet_address}`, '_blank')}
               >
                 <ExternalLink className="h-4 w-4 mr-2" />
-                View on Explorer
+                View on Solscan
               </Button>
             </div>
           </>
         ) : (
           <div className="text-center space-y-4">
             <div className="text-muted-foreground">
-              No wallet found. Create your Privy wallet to get started with your Proof of Fandom identity.
+              No Solana wallet found. Create your Solana wallet to get started with your Proof of Fandom identity.
             </div>
             <Button onClick={handleCreateWallet} variant="hero">
               <Wallet className="h-4 w-4 mr-2" />
-              Create Wallet
+              Create Solana Wallet
             </Button>
           </div>
         )}
