@@ -1,0 +1,340 @@
+/* Profile Page Styles - Black and White Theme */
+
+.profile-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.profile-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
+}
+
+.profile-content {
+  padding: 2rem 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.profile-subtitle {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .profile-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.profile-sidebar {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: fit-content;
+}
+
+.profile-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  color: #000000;
+}
+
+.profile-email {
+  color: #666666;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.profile-stat {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+.profile-stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.profile-stat-label {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.profile-main {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+}
+
+.profile-section:last-child {
+  margin-bottom: 0;
+}
+
+.profile-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .profile-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.form-input:disabled {
+  background-color: #f8f8f8;
+  color: #666666;
+}
+
+.form-textarea {
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+  resize: vertical;
+  min-height: 6rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.form-select {
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.form-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.form-button:disabled {
+  background-color: #f8f8f8;
+  color: #666666;
+  border-color: #e5e5e5;
+  cursor: not-allowed;
+}
+
+.form-button-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e5e5;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-button-secondary:hover {
+  background-color: #f8f8f8;
+  border-color: #000000;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.badge-item {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.badge-item:hover {
+  border-color: #000000;
+  background-color: #ffffff;
+}
+
+.badge-icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto 0.5rem;
+  color: #000000;
+}
+
+.badge-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.badge-description {
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.activity-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.activity-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e5e5e5;
+}
+
+.activity-timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.activity-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.activity-timeline-content {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.activity-timeline-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.activity-timeline-description {
+  font-size: 0.75rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+
+.activity-timeline-time {
+  font-size: 0.75rem;
+  color: #999999;
+}

@@ -1,0 +1,151 @@
+/* Not Found Page Styles - Black and White Theme */
+
+.not-found-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 32rem;
+  padding: 2rem 1rem;
+}
+
+.not-found-icon {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 2rem;
+  color: #999999;
+}
+
+.not-found-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.not-found-subtitle {
+  font-size: 1.25rem;
+  color: #666666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.not-found-description {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .not-found-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.not-found-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.not-found-button-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e5e5;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-button-secondary:hover {
+  background-color: #f8f8f8;
+  border-color: #000000;
+}
+
+.not-found-suggestions {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.not-found-suggestions-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.not-found-suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .not-found-suggestions-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.not-found-suggestion {
+  padding: 0.75rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.not-found-suggestion:hover {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+}
+
+.not-found-suggestion-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.not-found-suggestion-link:hover {
+  color: #666666;
+}

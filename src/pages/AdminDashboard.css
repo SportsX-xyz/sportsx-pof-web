@@ -1,0 +1,368 @@
+/* Admin Dashboard Page Styles - Black and White Theme */
+
+.admin-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.admin-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
+}
+
+.admin-content {
+  padding: 2rem 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.admin-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.admin-subtitle {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.admin-tabs {
+  margin-bottom: 2rem;
+}
+
+.tab-list {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #000000;
+}
+
+.tab-button.active {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto 0.75rem;
+  color: #000000;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.admin-table {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table-header-row {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.table-header-row.users {
+  grid-template-columns: 1fr 200px 150px 150px 120px;
+}
+
+.table-header-row.tickets {
+  grid-template-columns: 1fr 200px 150px 150px 120px 120px;
+}
+
+.table-body {
+  background-color: #ffffff;
+}
+
+.table-row {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: #f8f8f8;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row.users {
+  grid-template-columns: 1fr 200px 150px 150px 120px;
+}
+
+.table-row.tickets {
+  grid-template-columns: 1fr 200px 150px 150px 120px 120px;
+}
+
+.table-cell {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #000000;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0.125rem;
+}
+
+.user-email {
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.status-badge.pending {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.status-badge.approved {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.status-badge.rejected {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button.approve {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.action-button.approve:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.action-button.reject {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e5e5e5;
+}
+
+.action-button.reject:hover {
+  background-color: #f8f8f8;
+  border-color: #000000;
+}
+
+.action-button.view {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e5e5e5;
+}
+
+.action-button.view:hover {
+  background-color: #f8f8f8;
+  border-color: #000000;
+}
+
+.filters-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.filter-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.filter-select {
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.loading-container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e5e5;
+  border-top: 2px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #666666;
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666666;
+}
+
+.empty-state-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #999999;
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: #666666;
+}

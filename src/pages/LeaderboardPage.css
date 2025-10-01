@@ -1,0 +1,265 @@
+/* Leaderboard Page Styles - Black and White Theme */
+
+.leaderboard-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.leaderboard-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
+}
+
+.leaderboard-content {
+  padding: 2rem 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.leaderboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.leaderboard-subtitle {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.filter-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.filter-select {
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.leaderboard-table {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table-header-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 120px 120px;
+  gap: 1rem;
+  padding: 1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.table-body {
+  background-color: #ffffff;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 120px 120px;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: #f8f8f8;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.rank-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #000000;
+}
+
+.rank-badge {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.rank-badge.first {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.rank-badge.second {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.rank-badge.third {
+  background-color: #999999;
+  color: #ffffff;
+}
+
+.rank-badge.default {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0.125rem;
+}
+
+.user-email {
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.points-cell {
+  text-align: center;
+  font-weight: 600;
+  color: #000000;
+}
+
+.badges-cell {
+  text-align: center;
+}
+
+.badge-count {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.activity-cell {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.loading-container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e5e5;
+  border-top: 2px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #666666;
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666666;
+}
+
+.empty-state-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #999999;
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: #666666;
+}

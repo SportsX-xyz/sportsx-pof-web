@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Web3 Tech Future Color Scheme */
+    --background: 0 0% 0%; /* Pure black #000000 */
+    --foreground: 0 0% 100%; /* White #FFFFFF */
+    
+    /* Diamond color for shader effects */
+    --diamond: 192 100% 75%; /* Diamond cyan #5FDFD5 */
+
+    --card: 218 69% 18%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 218 69% 18%;
+    --popover-foreground: 0 0% 100%;
+
+    /* SportsX Web3 Brand Colors */
+    --primary: 225 59% 49%; /* Main blue #3264C8 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 225 70% 65%;
+
+    --secondary: 0 100% 50%; /* Canadian Flag Red #FF0000 */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 225 30% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 218 50% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 40% 25%;
+    --input: 218 40% 22%;
+    --ring: 225 59% 49%;
+
+    /* Web3 Tech Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(225 59% 49%), hsl(0 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(225 59% 49%) 0%, hsl(225 70% 65%) 30%, hsl(0 100% 50%) 70%, hsl(0 100% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(218 69% 16%), hsl(218 60% 18%));
+    --gradient-tech: linear-gradient(45deg, hsl(225 59% 49% / 0.1), hsl(0 100% 50% / 0.1));
+    
+    /* Tech-style shadows with neon effects */
+    --shadow-primary: 0 0 30px hsl(225 59% 49% / 0.4), 0 10px 30px hsl(225 59% 49% / 0.2);
+    --shadow-glow: 0 0 40px hsl(225 70% 65% / 0.6), 0 0 80px hsl(225 70% 65% / 0.3);
+    --shadow-red: 0 0 30px hsl(0 100% 50% / 0.4), 0 10px 30px hsl(0 100% 50% / 0.2);
+    --shadow-tech: 0 0 20px hsl(225 59% 49% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.1);
+
+    /* Web3/Tech animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode uses same web3 colors */
+    --background: 0 0% 0%; /* Pure black #000000 */
+    --foreground: 0 0% 100%;
+    
+    /* Diamond color for shader effects */
+    --diamond: 192 100% 75%; /* Diamond cyan #5FDFD5 */
+
+    --card: 218 69% 18%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 218 69% 18%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 225 59% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 218 50% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 225 30% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 40% 25%;
+    --input: 218 40% 22%;
+    --ring: 225 59% 49%;
+    --sidebar-background: 218 69% 14%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 225 59% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 218 50% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 218 40% 25%;
+    --sidebar-ring: 225 59% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

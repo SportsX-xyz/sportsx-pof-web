@@ -1,0 +1,324 @@
+/* Prediction Markets Page Styles - Black and White Theme */
+
+.prediction-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.prediction-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
+}
+
+.prediction-content {
+  padding: 2rem 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.prediction-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.prediction-subtitle {
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.markets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .markets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .markets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.market-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.market-card:hover {
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.market-header {
+  margin-bottom: 1rem;
+}
+
+.market-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.market-description {
+  color: #666666;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.market-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+.market-date {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.market-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.market-status.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.market-status.closed {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.market-status.upcoming {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.outcomes-section {
+  margin-bottom: 1.5rem;
+}
+
+.outcomes-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #000000;
+}
+
+.outcomes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.outcome-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.outcome-item:hover {
+  border-color: #000000;
+  background-color: #f8f8f8;
+}
+
+.outcome-item.selected {
+  border-color: #000000;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.outcome-text {
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.outcome-odds {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: inherit;
+}
+
+.bet-section {
+  margin-bottom: 1.5rem;
+}
+
+.bet-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #000000;
+}
+
+.bet-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.bet-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.bet-input:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.bet-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bet-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.bet-button:disabled {
+  background-color: #f8f8f8;
+  color: #666666;
+  border-color: #e5e5e5;
+  cursor: not-allowed;
+}
+
+.bet-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.potential-reward {
+  font-weight: 500;
+  color: #000000;
+}
+
+.user-prediction {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+.prediction-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.prediction-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.prediction-outcome {
+  font-weight: 500;
+  color: #000000;
+}
+
+.prediction-amount {
+  font-weight: 500;
+  color: #000000;
+}
+
+.loading-container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e5e5;
+  border-top: 2px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #666666;
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666666;
+}
+
+.empty-state-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #999999;
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: #666666;
+}

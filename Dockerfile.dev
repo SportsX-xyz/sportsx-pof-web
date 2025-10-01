@@ -1,0 +1,34 @@
+# Development Dockerfile for SportsX React Frontend
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies for native modules
+RUN apk add --no-cache libc6-compat
+
+# Copy package.json first
+COPY package.json ./
+
+# Install dependencies (using npm install since package-lock.json may not exist)
+RUN npm install
+
+# Copy source code and public assets
+COPY . .
+
+# Ensure public directory permissions and verify assets
+RUN chmod -R 755 /app/public && \
+    ls -la /app/public/ && \
+    ls -la /app/public/images/ && \
+    echo "Public directory contents verified"
+
+# Expose development port
+EXPOSE 8080
+
+# Set environment variables for development
+ENV NODE_ENV=development
+ENV VITE_HOST=0.0.0.0
+ENV VITE_PORT=8080
+
+# Start development server
+CMD ["npm", "run", "dev"]
