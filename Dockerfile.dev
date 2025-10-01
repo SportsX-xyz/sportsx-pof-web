@@ -17,18 +17,10 @@ RUN npm install
 COPY . .
 
 # Ensure public directory permissions and verify assets
-RUN if [ -d "/app/public" ]; then \
-        chmod -R 755 /app/public && \
-        ls -la /app/public/ && \
-        if [ -d "/app/public/images" ]; then \
-            ls -la /app/public/images/; \
-        fi && \
-        echo "Public directory contents verified"; \
-    else \
-        echo "Public directory not found, creating it" && \
-        mkdir -p /app/public && \
-        chmod -R 755 /app/public; \
-    fi
+RUN chmod -R 755 /app/public && \
+    ls -la /app/public/ && \
+    ls -la /app/public/images/ && \
+    echo "Public directory contents verified"
 
 # Expose development port
 EXPOSE 8080
