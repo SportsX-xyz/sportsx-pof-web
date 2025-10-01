@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 // Removed Supabase import
 import { useAuth } from "@/context/AuthContext";
 import { useAdmin } from "@/hooks/useAdmin";
-import { User, LogOut, Trophy, TrendingUp, Shield } from "lucide-react";
+import { User, LogOut, Trophy, TrendingUp, Shield, Info } from "lucide-react";
 
 export function Navigation() {
   const { user, login, logout } = useAuth();
@@ -55,6 +55,12 @@ export function Navigation() {
                 <Button variant="ghost" size="sm">
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Predictions
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="ghost" size="sm">
+                  <Info className="h-4 w-4 mr-2" />
+                  About
                 </Button>
               </Link>
               {isAdmin && (
