@@ -101,13 +101,13 @@ export function UpcomingTicketsCard() {
   };
 
   return (
-    <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-right-5 fade-in-0">
       <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2 text-lg">
-          <Ticket className="h-5 w-5 text-primary" />
-          Upcoming Tickets
+        <CardTitle className="flex items-center gap-2 text-lg group">
+          <Ticket className="h-5 w-5 text-primary group-hover:animate-bounce transition-all duration-300" />
+          <span className="group-hover:text-primary transition-colors duration-300">Upcoming Tickets</span>
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="animate-pulse">
           Your upcoming events and matches
         </CardDescription>
       </CardHeader>
@@ -115,34 +115,34 @@ export function UpcomingTicketsCard() {
         {upcomingTickets.length > 0 ? (
           <>
             {/* Show only the first ticket */}
-            <div className="p-3 border rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
+            <div className="p-3 border rounded-lg bg-background/50 hover:bg-background/80 transition-all duration-300 hover:shadow-md hover:border-primary/30 group animate-in slide-in-from-bottom-3 fade-in-0">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">{upcomingTickets[0].emoji}</span>
+                  <span className="text-lg group-hover:animate-pulse transition-all duration-300">{upcomingTickets[0].emoji}</span>
                   <div>
-                    <div className="font-medium text-sm">{upcomingTickets[0].event}</div>
+                    <div className="font-medium text-sm group-hover:text-primary transition-colors duration-300">{upcomingTickets[0].event}</div>
                     <div className="text-xs text-muted-foreground">{upcomingTickets[0].sport}</div>
                   </div>
                 </div>
                 <Badge 
                   variant="secondary" 
-                  className={`text-xs ${getStatusColor(upcomingTickets[0].status)} text-white`}
+                  className={`text-xs ${getStatusColor(upcomingTickets[0].status)} text-white group-hover:animate-pulse transition-all duration-300`}
                 >
                   {getStatusText(upcomingTickets[0].status)}
                 </Badge>
               </div>
               
               <div className="space-y-1 text-xs text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
+                <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
+                  <Calendar className="h-3 w-3 group-hover:text-primary transition-colors duration-300" />
                   {formatDate(upcomingTickets[0].date)} at {upcomingTickets[0].time}
                 </div>
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
+                <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
+                  <MapPin className="h-3 w-3 group-hover:text-primary transition-colors duration-300" />
                   {upcomingTickets[0].venue}
                 </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
+                <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
+                  <Clock className="h-3 w-3 group-hover:text-primary transition-colors duration-300" />
                   {getDaysUntil(upcomingTickets[0].date)}
                 </div>
               </div>
@@ -153,10 +153,10 @@ export function UpcomingTicketsCard() {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="w-full"
+                className="w-full hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-2 fade-in-0 delay-150"
                 onClick={() => window.open('https://ticket.tortorcoin.top', '_blank')}
               >
-                <ExternalLink className="h-3 w-3 mr-1" />
+                <ExternalLink className="h-3 w-3 mr-1 group-hover:animate-bounce transition-all duration-300" />
                 View All ({upcomingTickets.length} tickets)
               </Button>
             </div>

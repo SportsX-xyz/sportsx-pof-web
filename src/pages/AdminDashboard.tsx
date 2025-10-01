@@ -147,11 +147,11 @@ export default function AdminDashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'pending':
-        return <Badge variant="secondary"><Clock className="h-3 w-3 mr-1" />待审核</Badge>;
+        return <Badge variant="secondary"><Clock className="h-3 w-3 mr-1" />Pending</Badge>;
       case 'approved':
-        return <Badge variant="default"><CheckCircle className="h-3 w-3 mr-1" />已通过</Badge>;
+        return <Badge variant="default"><CheckCircle className="h-3 w-3 mr-1" />Approved</Badge>;
       case 'rejected':
-        return <Badge variant="destructive"><XCircle className="h-3 w-3 mr-1" />已拒绝</Badge>;
+        return <Badge variant="destructive"><XCircle className="h-3 w-3 mr-1" />Rejected</Badge>;
       default:
         return <Badge variant="outline">{status}</Badge>;
     }
@@ -162,7 +162,7 @@ export default function AdminDashboard() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-muted-foreground">加载管理后台...</p>
+          <p className="text-muted-foreground">Loading admin dashboard...</p>
         </div>
       </div>
     );
@@ -181,69 +181,69 @@ export default function AdminDashboard() {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
             <Shield className="h-8 w-8 text-primary" />
-            <h1 className="text-3xl md:text-4xl font-bold">管理员后台</h1>
+            <h1 className="text-3xl md:text-4xl font-bold">Admin Dashboard</h1>
           </div>
           <p className="text-xl text-muted-foreground">
-            管理用户、审核票据和查看平台统计
+            Manage users, review tickets, and view platform statistics
           </p>
         </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="hover:shadow-primary transition-all">
+          <Card className="hover:shadow-primary hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">总用户数</CardTitle>
-              <Users className="h-4 w-4 text-primary" />
+              <CardTitle className="text-sm font-medium group-hover:text-primary transition-colors duration-300">Total Users</CardTitle>
+              <Users className="h-4 w-4 text-primary group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-primary">{stats.totalUsers}</div>
-              <p className="text-xs text-muted-foreground">
-                注册用户总数
+              <div className="text-2xl font-bold text-primary group-hover:animate-pulse transition-all duration-300">{stats.totalUsers}</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                Total registered users
               </p>
             </CardContent>
           </Card>
 
           <Card 
-            className="hover:shadow-secondary transition-all cursor-pointer" 
+            className="hover:shadow-secondary hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-100 group cursor-pointer" 
             onClick={handleShowAllTickets}
           >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">票据总数</CardTitle>
-              <FileText className="h-4 w-4 text-secondary" />
+              <CardTitle className="text-sm font-medium group-hover:text-secondary transition-colors duration-300">Total Tickets</CardTitle>
+              <FileText className="h-4 w-4 text-secondary group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-secondary">{stats.totalTickets}</div>
-              <p className="text-xs text-muted-foreground">
-                点击查看所有票据
+              <div className="text-2xl font-bold text-secondary group-hover:animate-pulse transition-all duration-300">{stats.totalTickets}</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                Click to view all tickets
               </p>
             </CardContent>
           </Card>
 
           <Card 
-            className="hover:shadow-yellow-500 transition-all cursor-pointer" 
+            className="hover:shadow-yellow-500 hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-200 group cursor-pointer" 
             onClick={handleShowPendingTickets}
           >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">待审核票据</CardTitle>
-              <Clock className="h-4 w-4 text-yellow-500" />
+              <CardTitle className="text-sm font-medium group-hover:text-yellow-500 transition-colors duration-300">Pending Tickets</CardTitle>
+              <Clock className="h-4 w-4 text-yellow-500 group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-yellow-600">{stats.pendingTickets}</div>
-              <p className="text-xs text-muted-foreground">
-                点击查看待审核票据
+              <div className="text-2xl font-bold text-yellow-600 group-hover:animate-pulse transition-all duration-300">{stats.pendingTickets}</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                Click to view pending tickets
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-green-500 transition-all">
+          <Card className="hover:shadow-green-500 hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-300 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">总积分</CardTitle>
-              <TrendingUp className="h-4 w-4 text-green-500" />
+              <CardTitle className="text-sm font-medium group-hover:text-green-500 transition-colors duration-300">Total Points</CardTitle>
+              <TrendingUp className="h-4 w-4 text-green-500 group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">{stats.totalPoints.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground">
-                用户总积分
+              <div className="text-2xl font-bold text-green-600 group-hover:animate-pulse transition-all duration-300">{stats.totalPoints.toLocaleString()}</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                Total user points
               </p>
             </CardContent>
           </Card>
@@ -252,8 +252,8 @@ export default function AdminDashboard() {
         {/* Management Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="tickets">票据管理</TabsTrigger>
-            <TabsTrigger value="users">用户管理</TabsTrigger>
+            <TabsTrigger value="tickets">Ticket Management</TabsTrigger>
+            <TabsTrigger value="users">User Management</TabsTrigger>
           </TabsList>
 
           <TabsContent value="tickets" className="space-y-4">
@@ -261,9 +261,9 @@ export default function AdminDashboard() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle>票据审核</CardTitle>
+                    <CardTitle>Ticket Review</CardTitle>
                     <CardDescription>
-                      审核用户上传的票据，验证真实性并分配积分
+                      Review user-uploaded tickets, verify authenticity and assign points
                     </CardDescription>
                   </div>
                   <div className="flex gap-2">
@@ -272,14 +272,14 @@ export default function AdminDashboard() {
                       size="sm"
                       onClick={() => setTicketFilter("all")}
                     >
-                      全部票据 ({stats.totalTickets})
+                      All Tickets ({stats.totalTickets})
                     </Button>
                     <Button
                       variant={ticketFilter === "pending" ? "default" : "outline"}
                       size="sm"
                       onClick={() => setTicketFilter("pending")}
                     >
-                      待审核 ({stats.pendingTickets})
+                      Pending ({stats.pendingTickets})
                     </Button>
                   </div>
                 </div>
@@ -288,18 +288,18 @@ export default function AdminDashboard() {
                 {loadingTickets ? (
                   <div className="text-center py-8">
                     <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                    <p className="text-muted-foreground">加载票据数据...</p>
+                    <p className="text-muted-foreground">Loading ticket data...</p>
                   </div>
                 ) : (
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>用户</TableHead>
-                        <TableHead>文件名</TableHead>
-                        <TableHead>状态</TableHead>
-                        <TableHead>上传时间</TableHead>
-                        <TableHead>积分</TableHead>
-                        <TableHead>操作</TableHead>
+                        <TableHead>User</TableHead>
+                        <TableHead>File Name</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Upload Time</TableHead>
+                        <TableHead>Points</TableHead>
+                        <TableHead>Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -334,7 +334,7 @@ export default function AdminDashboard() {
                                  onClick={() => handleTicketReview(ticket)}
                                >
                                  <Eye className="h-3 w-3 mr-1" />
-                                 审核
+                                 Review
                                </Button>
                                {ticket.status === 'pending' && (
                                  <>
@@ -344,7 +344,7 @@ export default function AdminDashboard() {
                                      onClick={() => handleApproveTicket(ticket.id)}
                                    >
                                      <CheckCircle className="h-3 w-3 mr-1" />
-                                     通过
+                                     Approve
                                    </Button>
                                  </>
                                )}
@@ -362,27 +362,27 @@ export default function AdminDashboard() {
           <TabsContent value="users" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>用户管理</CardTitle>
+                <CardTitle>User Management</CardTitle>
                 <CardDescription>
-                  查看所有注册用户的详细信息和活动统计
+                  View detailed information and activity statistics for all registered users
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 {loadingUsers ? (
                   <div className="text-center py-8">
                     <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                    <p className="text-muted-foreground">加载用户数据...</p>
+                    <p className="text-muted-foreground">Loading user data...</p>
                   </div>
                 ) : (
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>用户信息</TableHead>
-                        <TableHead>国家</TableHead>
-                        <TableHead>注册时间</TableHead>
-                        <TableHead>总积分</TableHead>
-                        <TableHead>票据数量</TableHead>
-                        <TableHead>最后签到</TableHead>
+                        <TableHead>User Info</TableHead>
+                        <TableHead>Country</TableHead>
+                        <TableHead>Registration Date</TableHead>
+                        <TableHead>Total Points</TableHead>
+                        <TableHead>Ticket Count</TableHead>
+                        <TableHead>Last Check-in</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -409,7 +409,7 @@ export default function AdminDashboard() {
                           <TableCell>
                             {user.last_checkin 
                               ? format(new Date(user.last_checkin), 'MM-dd')
-                              : '从未签到'
+                              : 'Never checked in'
                             }
                           </TableCell>
                         </TableRow>

@@ -33,7 +33,7 @@ export function DailyCheckinCard() {
   };
 
   return (
-    <Card className="relative overflow-hidden">
+    <Card className="relative overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.01] animate-in slide-in-from-left-5 fade-in-0">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
       {checkinLoading && (
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 flex items-center justify-center">
@@ -45,11 +45,11 @@ export function DailyCheckinCard() {
         </div>
       )}
       <CardHeader className="relative">
-        <CardTitle className="flex items-center gap-2">
-          <Calendar className="h-5 w-5" />
-          Daily Check-in
+        <CardTitle className="flex items-center gap-2 group">
+          <Calendar className="h-5 w-5 group-hover:animate-bounce transition-all duration-300" />
+          <span className="group-hover:text-primary transition-colors duration-300">Daily Check-in</span>
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="animate-pulse">
           Earn 10 PoF points per team every day and build your streak!
         </CardDescription>
       </CardHeader>
@@ -113,7 +113,7 @@ export function DailyCheckinCard() {
                   onClick={() => performDailyCheckin(team.sport.toLowerCase())}
                   disabled={checkinLoading}
                   variant={index === 0 ? "hero" : index === 1 ? "outline" : "secondary"}
-                  className="w-full"
+                  className={`w-full hover:scale-105 hover:shadow-lg transition-all duration-300 animate-in slide-in-from-bottom-3 fade-in-0 delay-${index * 100} group`}
                   size={index === 0 ? "lg" : "default"}
                 >
                   {checkinLoading ? (
@@ -123,8 +123,8 @@ export function DailyCheckinCard() {
                     </>
                   ) : (
                     <>
-                      <span className="mr-2">{team.emoji}</span>
-                      <Calendar className="h-4 w-4 mr-2" />
+                      <span className="mr-2 group-hover:animate-bounce transition-all duration-300">{team.emoji}</span>
+                      <Calendar className="h-4 w-4 mr-2 group-hover:animate-pulse transition-all duration-300" />
                       Check in for {team.club} (+10 PoF)
                     </>
                   )}

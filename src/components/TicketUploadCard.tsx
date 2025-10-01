@@ -208,13 +208,13 @@ export function TicketUploadCard() {
   };
 
   return (
-    <Card>
+    <Card className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-left-5 fade-in-0">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <FileText className="h-5 w-5" />
-          Upload Ticket
+        <CardTitle className="flex items-center gap-2 group">
+          <FileText className="h-5 w-5 group-hover:animate-bounce transition-all duration-300" />
+          <span className="group-hover:text-primary transition-colors duration-300">Upload Ticket</span>
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="animate-pulse">
           Upload your match tickets to earn 100 PoF points each
         </CardDescription>
       </CardHeader>

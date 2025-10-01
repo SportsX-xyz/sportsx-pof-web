@@ -59,13 +59,13 @@ export function WalletCard() {
   }
 
   return (
-    <Card>
+    <Card className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-right-5 fade-in-0">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Wallet className="h-5 w-5" />
-          Your Wallet
+        <CardTitle className="flex items-center gap-2 group">
+          <Wallet className="h-5 w-5 group-hover:animate-bounce transition-all duration-300" />
+          <span className="group-hover:text-primary transition-colors duration-300">Your Wallet</span>
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="animate-pulse">
           {profile?.wallet_address 
             ? "Your Solana wallet is ready"
             : "Create your Solana wallet"
@@ -95,16 +95,16 @@ export function WalletCard() {
                 variant="outline"
                 size="sm"
                 onClick={handleCopyAddress}
-                className="flex-1"
+                className="flex-1 hover:scale-105 hover:shadow-lg transition-all duration-300 group animate-in slide-in-from-bottom-2 fade-in-0"
               >
                 {copied ? (
                   <>
-                    <CheckCircle className="h-4 w-4 mr-2" />
+                    <CheckCircle className="h-4 w-4 mr-2 group-hover:animate-bounce transition-all duration-300" />
                     Copied!
                   </>
                 ) : (
                   <>
-                    <Copy className="h-4 w-4 mr-2" />
+                    <Copy className="h-4 w-4 mr-2 group-hover:animate-bounce transition-all duration-300" />
                     Copy Address
                   </>
                 )}
@@ -113,8 +113,9 @@ export function WalletCard() {
                 variant="outline"
                 size="sm"
                 onClick={() => window.open(`https://solscan.io/account/${profile.wallet_address}`, '_blank')}
+                className="hover:scale-105 hover:shadow-lg transition-all duration-300 group animate-in slide-in-from-bottom-2 fade-in-0 delay-100"
               >
-                <ExternalLink className="h-4 w-4 mr-2" />
+                <ExternalLink className="h-4 w-4 mr-2 group-hover:animate-bounce transition-all duration-300" />
                 View on Solscan
               </Button>
             </div>
@@ -124,8 +125,12 @@ export function WalletCard() {
             <div className="text-muted-foreground">
               No Solana wallet found. Create your Solana wallet to get started with your Proof of Fandom identity.
             </div>
-            <Button onClick={handleCreateWallet} variant="hero">
-              <Wallet className="h-4 w-4 mr-2" />
+            <Button 
+              onClick={handleCreateWallet} 
+              variant="hero"
+              className="hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 group animate-in slide-in-from-bottom-3 fade-in-0"
+            >
+              <Wallet className="h-4 w-4 mr-2 group-hover:animate-bounce transition-all duration-300" />
               Create Solana Wallet
             </Button>
           </div>

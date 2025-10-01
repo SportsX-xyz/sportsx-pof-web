@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTeamPreferences } from "@/hooks/useTeamPreferences";
 import { TagSelector } from "@/components/TagSelector";
-import { Target, Trophy, Users, ArrowRight, CheckCircle } from "lucide-react";
+import { Target, Trophy, Users, ArrowRight, CheckCircle, X } from "lucide-react";
 import "./TeamSelectionModal.css";
 
 interface TeamSelectionModalProps {
   isOpen: boolean;
   onComplete: () => void;
+  onClose?: () => void;
+  showCloseButton?: boolean;
 }
 
 interface SelectedTeam {
@@ -21,7 +23,7 @@ interface SelectedTeam {
   clubName: string;
 }
 
-export function TeamSelectionModal({ isOpen, onComplete }: TeamSelectionModalProps) {
+export function TeamSelectionModal({ isOpen, onComplete, onClose, showCloseButton = false }: TeamSelectionModalProps) {
   const [isCompleting, setIsCompleting] = useState(false);
   const [selectedTeams, setSelectedTeams] = useState<SelectedTeam[]>([]);
   const { preferences } = useTeamPreferences();
@@ -49,9 +51,21 @@ export function TeamSelectionModal({ isOpen, onComplete }: TeamSelectionModalPro
         <div className="team-selection-modal-content">
         {/* Header */}
         <div className="team-selection-header">
-          <h1 className="team-selection-title">
-            Choose Your Teams 🏆
-          </h1>
+          <div className="flex items-center justify-between">
+            <h1 className="team-selection-title">
+              Choose Your Teams 🏆
+            </h1>
+            {showCloseButton && onClose && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={onClose}
+                className="hover:scale-105 hover:shadow-lg transition-all duration-300"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
           <p className="team-selection-subtitle">
             Select teams from different sports. You can choose one team per sport to personalize your experience.
           </p>

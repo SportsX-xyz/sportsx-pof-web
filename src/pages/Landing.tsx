@@ -202,46 +202,46 @@ export default function Landing() {
           
           <div className="mb-16">
             <InfiniteSlider className="w-full" pauseOnHover duration="30s">
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0">
                 <div className="text-center">
-                  <Target className="h-8 w-8 mx-auto mb-2 text-primary" />
-                  <h3 className="font-semibold text-sm">Prediction Markets</h3>
-                  <p className="text-xs text-muted-foreground">AI-powered insights</p>
+                  <Target className="h-8 w-8 mx-auto mb-2 text-primary group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-primary transition-colors duration-300">Prediction Markets</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">AI-powered insights</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-secondary/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0 delay-100">
                 <div className="text-center">
-                  <Trophy className="h-8 w-8 mx-auto mb-2 text-secondary" />
-                  <h3 className="font-semibold text-sm">Fan Tokens</h3>
-                  <p className="text-xs text-muted-foreground">Own your fandom</p>
+                  <Trophy className="h-8 w-8 mx-auto mb-2 text-secondary group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-secondary transition-colors duration-300">Fan Tokens</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Own your fandom</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-primary-glow/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0 delay-200">
                 <div className="text-center">
-                  <Users className="h-8 w-8 mx-auto mb-2 text-primary-glow" />
-                  <h3 className="font-semibold text-sm">DAO Governance</h3>
-                  <p className="text-xs text-muted-foreground">Community decisions</p>
+                  <Users className="h-8 w-8 mx-auto mb-2 text-primary-glow group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-primary-glow transition-colors duration-300">DAO Governance</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Community decisions</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0 delay-300">
                 <div className="text-center">
-                  <Zap className="h-8 w-8 mx-auto mb-2 text-primary" />
-                  <h3 className="font-semibold text-sm">NFT Tickets</h3>
-                  <p className="text-xs text-muted-foreground">Transparent access</p>
+                  <Zap className="h-8 w-8 mx-auto mb-2 text-primary group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-primary transition-colors duration-300">NFT Tickets</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Transparent access</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-secondary/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0 delay-400">
                 <div className="text-center">
-                  <Star className="h-8 w-8 mx-auto mb-2 text-secondary" />
-                  <h3 className="font-semibold text-sm">AI Agents</h3>
-                  <p className="text-xs text-muted-foreground">Smart strategies</p>
+                  <Star className="h-8 w-8 mx-auto mb-2 text-secondary group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-secondary transition-colors duration-300">AI Agents</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Smart strategies</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4">
+              <div className="flex items-center justify-center w-64 h-32 bg-card rounded-lg border shadow-sm mx-4 hover:shadow-lg hover:shadow-primary-glow/10 transition-all duration-300 hover:scale-105 group animate-in slide-in-from-bottom-3 fade-in-0 delay-500">
                 <div className="text-center">
-                  <Shield className="h-8 w-8 mx-auto mb-2 text-primary-glow" />
-                  <h3 className="font-semibold text-sm">Proof of Fandom</h3>
-                  <p className="text-xs text-muted-foreground">Verifiable identity</p>
+                  <Shield className="h-8 w-8 mx-auto mb-2 text-primary-glow group-hover:animate-bounce transition-all duration-300" />
+                  <h3 className="font-semibold text-sm group-hover:text-primary-glow transition-colors duration-300">Proof of Fandom</h3>
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">Verifiable identity</p>
                 </div>
               </div>
             </InfiniteSlider>

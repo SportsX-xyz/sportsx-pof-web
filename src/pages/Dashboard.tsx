@@ -86,13 +86,13 @@ export default function Dashboard() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="hover:shadow-primary transition-all">
+          <Card className="hover:shadow-primary hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total PoF Points</CardTitle>
-              <Trophy className="h-4 w-4 text-primary" />
+              <CardTitle className="text-sm font-medium group-hover:text-primary transition-colors duration-300">Total PoF Points</CardTitle>
+              <Trophy className="h-4 w-4 text-primary group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-primary">
+              <div className="text-2xl font-bold text-primary group-hover:animate-pulse transition-all duration-300">
                 {checkinLoading ? (
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -102,46 +102,46 @@ export default function Dashboard() {
                   totalPoints.toLocaleString()
                 )}
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                 {checkinLoading ? "Syncing with backend..." : "+50 from last week"}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-red transition-all">
+          <Card className="hover:shadow-red hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-100 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Fan Level</CardTitle>
-              <Star className="h-4 w-4 text-secondary" />
+              <CardTitle className="text-sm font-medium group-hover:text-secondary transition-colors duration-300">Fan Level</CardTitle>
+              <Star className="h-4 w-4 text-secondary group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-secondary">Superfan</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-secondary group-hover:animate-pulse transition-all duration-300">Superfan</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                 Level 3 of 10
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-glow transition-all">
+          <Card className="hover:shadow-glow hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-200 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Sports Tracked</CardTitle>
-              <Target className="h-4 w-4 text-primary-glow" />
+              <CardTitle className="text-sm font-medium group-hover:text-primary-glow transition-colors duration-300">Sports Tracked</CardTitle>
+              <Target className="h-4 w-4 text-primary-glow group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">3</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold group-hover:animate-pulse transition-all duration-300">3</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                 Basketball, Soccer, Football
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-primary transition-all">
+          <Card className="hover:shadow-primary hover:shadow-lg transition-all duration-300 hover:scale-105 animate-in slide-in-from-top-5 fade-in-0 delay-300 group">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Global Rank</CardTitle>
-              <TrendingUp className="h-4 w-4 text-primary" />
+              <CardTitle className="text-sm font-medium group-hover:text-primary transition-colors duration-300">Global Rank</CardTitle>
+              <TrendingUp className="h-4 w-4 text-primary group-hover:animate-bounce transition-all duration-300" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">#1,847</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold group-hover:animate-pulse transition-all duration-300">#1,847</div>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                 Top 5% of fans
               </p>
             </CardContent>

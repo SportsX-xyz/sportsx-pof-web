@@ -66,25 +66,30 @@ export function FanProfile() {
     });
   };
 
+  const handlePreferencesClose = () => {
+    setIsEditingPreferences(false);
+  };
+
   return (
     <div className="space-y-6">
       {/* Top Row: Fan Profile and Wallet Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Fan Profile Card */}
-        <Card>
+        <Card className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-left-5 fade-in-0">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5" />
-                Fan Profile
+              <div className="flex items-center gap-2 group">
+                <Users className="h-5 w-5 group-hover:animate-bounce transition-all duration-300" />
+                <span className="group-hover:text-primary transition-colors duration-300">Fan Profile</span>
               </div>
               {!isEditingProfile && (
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setIsEditingProfile(true)}
+                  className="hover:scale-105 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <Edit3 className="h-4 w-4 mr-1" />
+                  <Edit3 className="h-4 w-4 mr-1 group-hover:animate-bounce transition-all duration-300" />
                   Edit
                 </Button>
               )}
@@ -133,12 +138,21 @@ export function FanProfile() {
                   />
                 </div>
                 <div className="flex gap-2">
-                  <Button onClick={handleSaveProfile} size="sm">
-                    <Save className="h-4 w-4 mr-1" />
+                  <Button 
+                    onClick={handleSaveProfile} 
+                    size="sm"
+                    className="hover:scale-105 hover:shadow-lg transition-all duration-300 group animate-in slide-in-from-bottom-2 fade-in-0"
+                  >
+                    <Save className="h-4 w-4 mr-1 group-hover:animate-bounce transition-all duration-300" />
                     Save
                   </Button>
-                  <Button onClick={handleCancelEdit} variant="outline" size="sm">
-                    <X className="h-4 w-4 mr-1" />
+                  <Button 
+                    onClick={handleCancelEdit} 
+                    variant="outline" 
+                    size="sm"
+                    className="hover:scale-105 hover:shadow-lg transition-all duration-300 group animate-in slide-in-from-bottom-2 fade-in-0 delay-100"
+                  >
+                    <X className="h-4 w-4 mr-1 group-hover:animate-bounce transition-all duration-300" />
                     Cancel
                   </Button>
                 </div>
@@ -170,19 +184,20 @@ export function FanProfile() {
       </div>
 
       {/* Fandom Preferences Card */}
-      <Card>
+      <Card className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-right-5 fade-in-0 delay-200">
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Target className="h-5 w-5" />
-              Fandom Preferences
+            <div className="flex items-center gap-2 group">
+              <Target className="h-5 w-5 group-hover:animate-bounce transition-all duration-300" />
+              <span className="group-hover:text-primary transition-colors duration-300">Fandom Preferences</span>
             </div>
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsEditingPreferences(true)}
+              className="hover:scale-105 hover:shadow-lg transition-all duration-300 group"
             >
-              <Edit3 className="h-4 w-4 mr-1" />
+              <Edit3 className="h-4 w-4 mr-1 group-hover:animate-bounce transition-all duration-300" />
               Edit Teams
             </Button>
           </CardTitle>
@@ -254,6 +269,8 @@ export function FanProfile() {
       <TeamSelectionModal 
         isOpen={isEditingPreferences}
         onComplete={handlePreferencesComplete}
+        onClose={handlePreferencesClose}
+        showCloseButton={true}
       />
     </div>
   );

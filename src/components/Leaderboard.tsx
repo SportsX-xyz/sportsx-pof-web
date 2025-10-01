@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -14,9 +14,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Trophy, Medal, Users, Crown, ArrowUpDown } from "lucide-react";
+import { Trophy, Medal, Users, Crown, ArrowUpDown, Target } from "lucide-react";
 import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { useTags } from "@/hooks/useTags";
+import "./Leaderboard.css";
 
 interface LeaderboardEntry {
   user_id: string;
@@ -41,6 +42,9 @@ export function Leaderboard() {
   const { getSportsByType } = useTags();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [isFlashing, setIsFlashing] = useState(false);
+  const tableRef = useRef<HTMLDivElement>(null);
+  const userRowRef = useRef<HTMLTableRowElement>(null);
 
   const sports = getSportsByType('sport');
   const leagues = filters.sport ? getSportsByType('league', filters.sport) : [];
@@ -168,6 +172,24 @@ export function Leaderboard() {
 
   const userRank = getUserRank();
 
+  const handleJumpToUserPosition = () => {
+    if (userRowRef.current && tableRef.current) {
+      // Scroll to user's row
+      userRowRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+      
+      // Trigger golden flash animation
+      setIsFlashing(true);
+      
+      // Reset flash after animation completes
+      setTimeout(() => {
+        setIsFlashing(false);
+      }, 1000); // 2 flashes * 500ms each
+    }
+  };
+
   if (loading) {
     return (
       <Card>
@@ -192,19 +214,22 @@ export function Leaderboard() {
     <div className="space-y-6">
       {/* User Rank Banner */}
       {userRank && (
-        <Card className="bg-gradient-to-r from-primary/10 to-secondary/10">
+        <Card 
+          className="bg-gradient-to-r from-primary/10 to-secondary/10 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+          onClick={handleJumpToUserPosition}
+        >
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Users className="h-5 w-5 text-primary" />
+                <Target className="h-5 w-5 text-primary group-hover:animate-bounce transition-all duration-300" />
                 <div>
-                  <div className="font-semibold">Your Current Rank</div>
-                  <div className="text-sm text-muted-foreground">
-                    Out of {leaderboard.length} fans
+                  <div className="font-semibold group-hover:text-primary transition-colors duration-300">Your Current Rank</div>
+                  <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                    Click to jump to your position
                   </div>
                 </div>
               </div>
-              <div className="text-2xl font-bold text-primary">
+              <div className="text-2xl font-bold text-primary group-hover:animate-pulse transition-all duration-300">
                 #{userRank}
               </div>
             </div>
@@ -282,7 +307,7 @@ export function Leaderboard() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
+          <div className="rounded-md border" ref={tableRef}>
             <Table>
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
@@ -302,18 +327,27 @@ export function Leaderboard() {
               </TableHeader>
               <TableBody>
                 {table.getRowModel().rows?.length ? (
-                  table.getRowModel().rows.map((row) => (
-                    <TableRow
-                      key={row.id}
-                      data-state={row.getIsSelected() && "selected"}
-                    >
-                      {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id}>
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))
+                  table.getRowModel().rows.map((row, index) => {
+                    // Find the current user's row by checking if this row's rank matches the user's rank
+                    const currentUserRank = getUserRank();
+                    const rowRank = index + 1; // Rank is index + 1
+                    const isUserRow = currentUserRank && rowRank === currentUserRank;
+                    
+                    return (
+                      <TableRow
+                        key={row.id}
+                        ref={isUserRow ? userRowRef : null}
+                        data-state={row.getIsSelected() && "selected"}
+                        className={isUserRow && isFlashing ? "golden-flash" : ""}
+                      >
+                        {row.getVisibleCells().map((cell) => (
+                          <TableCell key={cell.id}>
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    );
+                  })
                 ) : (
                   <TableRow>
                     <TableCell colSpan={columns.length} className="h-24 text-center">

@@ -58,8 +58,9 @@ export function useAdmin() {
         return;
       }
 
-      // Mock admin status - set to false for demo
-      setIsAdmin(false);
+      // Mock admin status - set to true for development/testing
+      // In production, this will check user role/permissions
+      setIsAdmin(true);
       setLoading(false);
     };
 
