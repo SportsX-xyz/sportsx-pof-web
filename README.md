@@ -102,17 +102,20 @@ proof-of-fandom-hub/
 │   ├── main.tsx                    # Application entry point
 │   └── vite-env.d.ts               # Vite type definitions
 ├── .cursorrules                    # Cursor AI coding rules
+├── .env                            # Environment variables (local)
+├── .env.example                    # Environment variables template
+├── .gitignore                      # Git ignore rules
 ├── components.json                 # shadcn/ui configuration
 ├── index.html                      # HTML entry point
 ├── package.json                    # Dependencies and scripts
-├── playwright.config.ts            # Playwright test config (removed)
+├── playwright.config.ts            # Playwright test config
 ├── postcss.config.js               # PostCSS configuration
 ├── tailwind.config.ts              # Tailwind CSS configuration
 ├── tsconfig.app.json               # TypeScript app config
 ├── tsconfig.json                   # TypeScript config
 ├── tsconfig.node.json              # TypeScript node config
 ├── vite.config.ts                  # Vite build configuration
-└── vitest.config.ts                # Vitest test config (removed)
+└── vitest.config.ts                # Vitest test config
 ```
 
 ## 🔧 File & Folder Functionality
@@ -145,9 +148,10 @@ proof-of-fandom-hub/
 
 #### `src/lib/privy.ts`
 - Privy configuration
-- App ID settings
+- Environment-based App ID (secure)
 - Wallet creation utilities
 - Authentication options
+- Error handling for missing environment variables
 
 ### **Page Components**
 
@@ -203,10 +207,11 @@ proof-of-fandom-hub/
 ### **Reusable Components**
 
 #### `src/components/Navigation.tsx`
-- Main navigation bar
+- Main navigation bar with all page links
 - Logo display
-- User menu
-- Authentication buttons
+- User menu (Dashboard, Profile, Leaderboard, Predictions, About)
+- Admin menu (admin users only)
+- Authentication buttons (Sign In/Sign Out)
 
 #### `src/components/ui/`
 - Base UI component library (shadcn/ui)
@@ -319,14 +324,29 @@ proof-of-fandom-hub/
 
 4. **Open in browser**
    ```
-   http://localhost:5173
+   http://localhost:8080
    ```
 
 ### Environment Setup
 
-The application uses Privy for authentication. The Privy app ID is configured in `src/lib/privy.ts`:
-- Development: `cmg2f4jbn00kdla0cswyzlcph`
-- Production: `cmg2f4jbn00kdla0cswyzlcph`
+The application uses Privy for authentication and requires environment variables to be configured:
+
+1. **Copy environment template**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Configure Privy App ID**
+   - Get your Privy App ID from [https://dashboard.privy.io/](https://dashboard.privy.io/)
+   - Replace `your_privy_app_id_here` in `.env` with your actual Privy App ID
+
+3. **Environment Variables**
+   - `VITE_PRIVY_APP_ID` - Your Privy authentication app ID (required)
+   - `NODE_ENV` - Environment mode (development/production)
+   - `VITE_HOST` - Development server host (default: 0.0.0.0)
+   - `VITE_PORT` - Development server port (default: 8080)
+
+**Security Note**: The Privy App ID is now stored securely in environment variables and not hardcoded in the source code.
 
 ## 🎨 Design System
 
@@ -374,6 +394,23 @@ The application uses Privy for authentication. The Privy app ID is configured in
 - User-owned data
 - Verifiable credentials
 - Reputation tracking
+
+## 🔄 Recent Updates
+
+### Security Improvements
+- **Environment Variables**: Privy App ID now stored securely in `.env` file
+- **No Hardcoded Secrets**: Removed sensitive data from source code
+- **Error Handling**: Clear error messages for missing environment variables
+
+### Navigation Updates
+- **Complete Page Coverage**: All pages now accessible through navigation bar
+- **About Page**: Added to main navigation menu
+- **Consistent UX**: Unified navigation experience across all pages
+
+### Environment Setup
+- **`.env.example`**: Template file for easy setup
+- **`.env`**: Local environment configuration (gitignored)
+- **Documentation**: Clear setup instructions for new developers
 
 ## 🛠️ Development
 

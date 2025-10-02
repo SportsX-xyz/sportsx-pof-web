@@ -1,9 +1,11 @@
 // Privy configuration and utilities
 import { PrivyProvider } from '@privy-io/react-auth';
 
-export const PRIVY_APP_ID = process.env.NODE_ENV === 'production' 
-  ? 'cmg2f4jbn00kdla0cswyzlcph' // Production Privy app ID
-  : 'cmg2f4jbn00kdla0cswyzlcph'; // Development Privy app ID
+export const PRIVY_APP_ID = import.meta.env.VITE_PRIVY_APP_ID;
+
+if (!PRIVY_APP_ID) {
+  throw new Error('VITE_PRIVY_APP_ID environment variable is required. Please check your .env file.');
+}
 
 export const privyConfig = {
   embeddedWallets: {
