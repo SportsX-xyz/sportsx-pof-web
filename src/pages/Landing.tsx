@@ -1,14 +1,10 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ShaderLines } from "@/components/ui/shader-lines";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { Trophy, Shield, Users, Zap, Star, Target, HelpCircle, ChevronDown } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Suspense, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
-import { useTeamPreferences } from "@/hooks/useTeamPreferences";
-import { useNavigate } from "react-router-dom";
-import { TeamSelectionModal } from "@/components/TeamSelectionModal";
+import { WaitlistForm } from "@/components/WaitlistForm";
 import "./Landing.css";
 import {
   Accordion,
@@ -26,40 +22,21 @@ const SafeShaderLines = ({ className }: { className?: string }) => {
 };
 
 export default function Landing() {
-  const { user, login } = useAuth();
-  const { hasPreferences, loading: preferencesLoading } = useTeamPreferences();
-  const navigate = useNavigate();
-  const [showTeamSelectionModal, setShowTeamSelectionModal] = useState(false);
+  const [showWaitlistForm, setShowWaitlistForm] = useState(false);
 
-  const handleStartBuilding = async () => {
-    if (user) {
-      // User is already logged in, check team preferences
-      if (!preferencesLoading) {
-        if (hasPreferences === false) {
-          setShowTeamSelectionModal(true);
-        } else {
-          navigate('/dashboard');
-        }
-      }
-    } else {
-      // User needs to login with Privy
-      await login();
-    }
+  const handleJoinWaitlist = () => {
+    setShowWaitlistForm(true);
   };
 
-  const handleTeamSelectionComplete = () => {
-    setShowTeamSelectionModal(false);
-    navigate('/dashboard');
-  };
 
   return (
     <div className="landing-container">
       <Navigation />
       
-      {/* Team Selection Modal */}
-      <TeamSelectionModal 
-        isOpen={showTeamSelectionModal}
-        onComplete={handleTeamSelectionComplete}
+      {/* Waitlist Form Modal */}
+      <WaitlistForm 
+        isOpen={showWaitlistForm}
+        onClose={() => setShowWaitlistForm(false)}
       />
       
       {/* Hero Section */}
@@ -88,10 +65,10 @@ export default function Landing() {
                 variant="hero"
                 size="lg"
                 className="text-lg px-8 py-4"
-                onClick={handleStartBuilding}
+                onClick={handleJoinWaitlist}
               >
                 <Trophy className="h-5 w-5 mr-2" />
-                Start Building Your PoF
+                Join waitlist
               </Button>
             </div>
             
@@ -333,10 +310,10 @@ export default function Landing() {
             variant="hero"
             size="lg"
             className="text-lg px-8 py-4"
-            onClick={handleStartBuilding}
+            onClick={handleJoinWaitlist}
           >
             <Star className="h-5 w-5 mr-2" />
-            Get Started Now
+            Join waitlist
           </Button>
         </div>
       </section>
@@ -344,8 +321,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="bg-muted py-16">
         <div className="mx-auto max-w-5xl px-6">
-          <Link
-            to="/"
+          <div
             aria-label="go home"
             className="mx-auto block size-fit">
             <img 
@@ -353,39 +329,27 @@ export default function Landing() {
               alt="SportsX Logo" 
               className="h-8 w-auto mx-auto"
             />
-          </Link>
+          </div>
 
           <div className="my-8 flex flex-wrap justify-center gap-6">
-            <Link
-              to="/features"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            <div className="text-muted-foreground block duration-150">
               <span>Features</span>
-            </Link>
-            <Link
-              to="/about"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            </div>
+            <div className="text-muted-foreground block duration-150">
               <span>About</span>
-            </Link>
-            <Link
-              to="/leaderboard"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            </div>
+            <div className="text-muted-foreground block duration-150">
               <span>Leaderboard</span>
-            </Link>
-            <Link
-              to="/prediction-markets"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            </div>
+            <div className="text-muted-foreground block duration-150">
               <span>Markets</span>
-            </Link>
-            <Link
-              to="/help"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            </div>
+            <div className="text-muted-foreground block duration-150">
               <span>Help</span>
-            </Link>
-            <Link
-              to="/contact"
-              className="text-muted-foreground hover:text-primary block duration-150">
+            </div>
+            <div className="text-muted-foreground block duration-150">
               <span>Contact</span>
-            </Link>
+            </div>
           </div>
           
           <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
