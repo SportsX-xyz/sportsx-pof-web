@@ -1,11 +1,14 @@
 # Development Dockerfile for SportsX React Frontend
-FROM node:18-alpine
+FROM node:18-slim
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies for native modules
-RUN apk add --no-cache libc6-compat
+# Install dependencies for native modules (Debian-based)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libc6-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy package.json first
 COPY package.json ./
