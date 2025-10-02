@@ -144,4 +144,3 @@ firebase-debug.*.log
 .env.test
 .env.production
 .cursorrules
-package-lock.json
