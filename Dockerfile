@@ -2,19 +2,24 @@
 # Multi-stage build for optimized production image
 
 # Stage 1: Build stage
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies for native modules
-RUN apk add --no-cache libc6-compat
+# Install dependencies for native modules and build tools
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    make \
+    g++ \
+    gcc
 
-# Copy package.json first
-COPY package.json ./
+# Copy package files first
+COPY package.json package-lock.json ./
 
-# Install dependencies (using npm install for flexibility)
-RUN npm install --omit=dev
+# Install all dependencies (including dev dependencies needed for build)
+RUN npm ci
 
 # Copy source code
 COPY . .

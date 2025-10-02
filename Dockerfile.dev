@@ -1,17 +1,22 @@
 # Development Dockerfile for SportsX React Frontend
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies for native modules
-RUN apk add --no-cache libc6-compat
+# Install dependencies for native modules and build tools
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    make \
+    g++ \
+    gcc
 
-# Copy package.json first
-COPY package.json ./
+# Copy package files first
+COPY package.json package-lock.json ./
 
-# Install dependencies (using npm install since package-lock.json may not exist)
-RUN npm install
+# Install dependencies using npm ci for reproducible builds
+RUN npm ci
 
 # Copy source code and public assets
 COPY . .
