@@ -8,6 +8,7 @@ import { PrivyProvider } from '@privy-io/react-auth';
 import { AuthProvider } from "@/context/AuthContext";
 import { privyConfig, PRIVY_APP_ID } from "@/lib/privy";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
@@ -36,14 +37,14 @@ function App() {
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Landing />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/leaderboard" element={<LeaderboardPage />} />
-                  <Route path="/predictions" element={<PredictionMarketsPage />} />
-                  <Route path="/admin" element={<AdminDashboard />} />
-                  <Route path="/about" element={<About />} />
+                  <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                  <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                  <Route path="/leaderboard" element={<ProtectedRoute><LeaderboardPage /></ProtectedRoute>} />
+                  <Route path="/predictions" element={<ProtectedRoute><PredictionMarketsPage /></ProtectedRoute>} />
+                  <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+                  <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="*" element={<ProtectedRoute><NotFound /></ProtectedRoute>} />
                 </Routes>
               </BrowserRouter>
               <Toaster />
