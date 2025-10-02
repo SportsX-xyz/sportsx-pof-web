@@ -11,10 +11,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - VITE_HOST=0.0.0.0
-      - VITE_PORT=8080
+    env_file:
+      - .env
     networks:
       - sportsx-network
     profiles:
@@ -27,8 +25,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
     networks:
       - sportsx-network
     profiles:
