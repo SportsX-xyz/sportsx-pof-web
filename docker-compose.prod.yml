@@ -8,8 +8,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
     networks:
       - sportsx-prod-network
     restart: unless-stopped
