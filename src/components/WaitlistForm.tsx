@@ -14,8 +14,7 @@ export function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
-    location: ""
+    email: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -33,12 +32,25 @@ export function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('http://3.85.207.8:5000/cta', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstname: formData.firstName,
+          lastname: formData.lastName,
+          email: formData.email
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
       
       toast({
         title: "Success!",
-        description: "You're joined the waiting list",
+        description: "You've joined the waiting list",
         duration: 5000,
       });
 
@@ -46,8 +58,7 @@ export function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
       setFormData({
         firstName: "",
         lastName: "",
-        email: "",
-        location: ""
+        email: ""
       });
 
       // Close modal
@@ -115,19 +126,6 @@ export function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
               name="email"
               type="email"
               value={formData.email}
-              onChange={handleInputChange}
-              required
-              className="w-full"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="location" className="text-white">Location</Label>
-            <Input
-              id="location"
-              name="location"
-              type="text"
-              value={formData.location}
               onChange={handleInputChange}
               required
               className="w-full"

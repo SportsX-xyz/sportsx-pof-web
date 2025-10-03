@@ -15,7 +15,7 @@ export function Navigation() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center">
             <img 
-              src="/images/logo.png" 
+              src="/images/logo_black.png" 
               alt="SportsX Logo" 
               className="h-8 w-auto"
             />

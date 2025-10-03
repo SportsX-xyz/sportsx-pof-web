@@ -325,7 +325,7 @@ export default function Landing() {
             aria-label="go home"
             className="mx-auto block size-fit">
             <img 
-              src="/images/logo.png" 
+              src="/images/logo_black.png" 
               alt="SportsX Logo" 
               className="h-8 w-auto mx-auto"
             />
