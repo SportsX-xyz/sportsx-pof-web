@@ -32,7 +32,7 @@ export function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://3.85.207.8:5000/cta', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/cta`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
