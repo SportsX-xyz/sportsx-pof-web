@@ -259,14 +259,14 @@ export default function Landing() {
                 </AccordionContent>
               </AccordionItem>
               
-              <AccordionItem value="item-3">
+              {/* <AccordionItem value="item-3">
                 <AccordionTrigger className="text-left">
                   Is SportsX an AI-powered sports betting alternative?
                 </AccordionTrigger>
                 <AccordionContent>
                   SportsX offers AI-powered prediction markets that are community-driven and transparent, serving as an alternative to traditional sports betting. Our platform focuses on fan engagement and skill-based predictions rather than pure gambling.
                 </AccordionContent>
-              </AccordionItem>
+              </AccordionItem> */}
               
               <AccordionItem value="item-4">
                 <AccordionTrigger className="text-left">
