@@ -443,6 +443,7 @@ This project is proprietary software. All rights reserved.
 
 This is a private project. For internal development, follow the established patterns and coding standards outlined in `.cursorrules`.
 
+
 ---
 
 **SportsX** - Transforming fandom into verifiable reputation assets.
